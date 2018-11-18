@@ -1,13 +1,38 @@
 ## INSTALAR MINIKUBE
 
+### Linux (x64)
+
 ````
 $ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube && sudo cp minikube /usr/local/bin/ && rm minikube
 $ curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && chmod +x kubectl && sudo cp kubectl /usr/local/bin/ && rm kubectl
 ````
 
+### OSX (Darwin)
+
+Puedes instalar minikube desde los repositorios oficiales:
+
+````
+$ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-amd64 && chmod +x minikube && sudo cp minikube /usr/local/bin/ && rm minikube
+````
+
+O usar Hombrew (aunque es posible que no estén tan actualizados):
+
+````
+$ brew cask install minikube
+````
+
+Y después instalamos kubectl como en el caso de linux:
+
+````
+$ curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/darwin/amd64/kubectl && chmod +x kubectl && sudo cp kubectl /usr/local/bin/ && rm kubectl
+````
+
+
 ### Para Testear que todo haya ido bien:
 
 ````
+$ minikube start
+
 $ kubectl run hello-minikube --image=k8s.gcr.io/echoserver:1.4 --port=8080
 
 $ kubectl expose deployment hello-minikube --type=NodePort
