@@ -70,7 +70,7 @@ $ minikube stop
 ### Minikube Dashboard
 
 ````
-$ minikube dasboard
+$ minikube dashboard
 ````
 
 ## CREAR INFRAESTRUCTURA
